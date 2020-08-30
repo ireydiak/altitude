@@ -1,0 +1,24 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.4.6
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "cryptic-thicket-61270"
+          heroku_email: "jean-charles.verdier@usherbrooke.ca"
+          branch: "master"
+          procfile: "web: vendor/bin/heroku-php-apache2 public/"
+        env:
+          DB_HOST: ${{secrets.DB_HOST}}
+          DB_DATABASE: ${{secrets.DB_DATABASE}}
+          DB_USERNAME: ${{secrets.DB_USERNAME}}
+          DB_PASSWORD: ${{secrets.DB_PASSWORD}}
