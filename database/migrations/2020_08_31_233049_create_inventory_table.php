@@ -24,6 +24,7 @@ class CreateInventoryTable extends Migration
             $table->unsignedBigInteger('equipment_id');
             $table->foreign('equipment_id')->references('id')->on('equipment');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

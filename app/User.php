@@ -11,6 +11,18 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
+     * Validation rules
+     *
+     * @var string[]
+     */
+    public static $rules = [
+        'first_name' => 'required',
+        'last_name' => 'required',
+        'cip' => 'unique:App\User,cip',
+        'email' => 'unique:App\User,email'
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

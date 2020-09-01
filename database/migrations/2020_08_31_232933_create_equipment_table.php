@@ -18,6 +18,7 @@ class CreateEquipmentTable extends Migration
             $table->string('name')->unique();
             $table->longText('description')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

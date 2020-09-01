@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\User;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUser extends FormRequest
+class StoreUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +24,6 @@ class StoreUser extends FormRequest
      */
     public function rules()
     {
-        return [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'cip' => 'unique:App\User,cip',
-            'email' => 'unique:App\User,email'
-        ];
+        return User::$rules;
     }
 }

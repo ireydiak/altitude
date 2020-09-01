@@ -3,12 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Represents a physical Equipment
+ * Represents a physical EquipmentController
  */
 class Inventory extends Model
 {
+    use SoftDeletes;
+
     /**
      * The database table name
      *
