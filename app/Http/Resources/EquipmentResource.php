@@ -20,7 +20,8 @@ class EquipmentResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'inventories' => InventoryResource::collection($this->inventories),
+            'info' => $this->info,
+            'inventory' => InventoryResource::collection($this->inventories),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];

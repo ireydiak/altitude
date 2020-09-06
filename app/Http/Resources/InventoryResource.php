@@ -18,6 +18,7 @@ class InventoryResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'name' => $this->equipment->name,
             'sku' => $this->sku,
             'info' => $this->info,
             'description' => $this->description,
@@ -25,7 +26,6 @@ class InventoryResource extends JsonResource
             'state' => $this->state,
             'price' => $this->price,
             'purchase_date' => $this->purchase_date,
-            'equipment' => (new EquipmentResource($this->equipment))->toArray($request),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];
